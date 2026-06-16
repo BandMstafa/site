@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPELLBINDING TOYS AND GAMES LTD | Modern Retail & Play Tech</title>
+    <meta name="description" content="Leading retailer of toys, games, sporting goods, and hobby products in Shepperton, UK. Merging physical retail with digital experiences.">
+    <style>
+        /* DESIGN SYSTEM: MODERN PLAYFUL TECH */
+        :root {
+            --bg-main: #FAFAFA;        /* Very Light Gray */
+            --bg-surface: #FFFFFF;     /* White */
+            --primary: #5B21B6;        /* Deep Magical Purple */
+            --primary-light: #8B5CF6;  /* Soft Purple */
+            --accent: #F59E0B;         /* Vibrant Amber/Gold */
+            --text-dark: #1F2937;      /* Slate 800 */
+            --text-muted: #6B7280;     /* Slate 500 */
+            --border-color: #E5E7EB;   /* Slate 200 */
+            
+            --font-display: 'Quicksand', -apple-system, sans-serif;
+            --font-body: 'Nunito', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Abstract Background Elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%; right: -5%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%; left: -10%;
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        /* CSS Star/Sparkle Icon */
+        .logo-icon {
+            width: 28px; height: 28px;
+            background: var(--accent);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            display: inline-block;
+        }
+
+        .nav-links { display: flex; gap: 35px; font-weight: 700; font-size: 0.9rem; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-nav {
+            background: var(--primary);
+            color: var(--bg-surface) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .btn-nav:hover { background: var(--accent); color: var(--text-dark) !important; }
+
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 100vh;
+            padding: 140px 5% 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 900;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--bg-surface);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(91, 33, 182, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: var(--accent);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+            color: var(--text-dark);
+        }
+
+        /* Abstract Playful Graphic */
+        .hero-graphic {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-block {
+            position: absolute;
+            background: var(--bg-surface);
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .block-1 { width: 280px; height: 350px; z-index: 2; transform: rotate(-5deg); border-top: 8px solid var(--primary); }
+        .block-2 { width: 250px; height: 300px; z-index: 1; transform: rotate(10deg) translate(60px, -40px); background: var(--primary-light); opacity: 0.8; border: none; }
+        .block-3 { width: 100px; height: 100px; z-index: 3; transform: translate(-120px, 120px); background: var(--accent); border-radius: 20px; border: none; }
+
+        /* --- RETAIL DIVISIONS --- */
+        .section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            font-weight: 900;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(91, 33, 182, 0.08);
+            border-color: var(--primary-light);
+        }
+
+        .service-icon {
+            width: 60px; height: 60px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- B2C APP PROMO (CRITICAL FOR GOOGLE PLAY CONSOLE) --- */
+        .app-promo {
+            background: var(--primary);
+            border-radius: 40px;
+            padding: 80px 5%;
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            color: var(--bg-surface);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(91, 33, 182, 0.4);
+        }
+
+        .app-promo::before {
+            content: '';
+            position: absolute;
+            right: -10%; top: -20%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+
+        .app-text h2 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .app-text p {
+            color: #E5E7EB;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+        }
+
+        .app-list { list-style: none; margin: 30px 0; }
+        .app-list li {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-weight: 600;
+        }
+        .app-list li::before {
+            content: '★';
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* CSS Phone Mockup - Retail & AR App */
+        .mockup-phone {
+            width: 100%;
+            max-width: 320px;
+            height: 600px;
+            margin: 0 auto;
+            background: var(--bg-surface);
+            border: 12px solid #111827;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 25px;
+            background: #111827;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .ui-header {
+            margin-top: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ui-header h4 { font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); font-weight: 800; }
+        .ui-points { background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+
+        .ui-camera-box {
+            height: 180px;
+            background: #E5E7EB;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #9CA3AF;
+            position: relative;
+            overflow: hidden;
+        }
+        .ui-camera-box::after { content: 'AR SCANNER ACTIVE'; font-weight: 800; color: #9CA3AF; font-size: 0.8rem; letter-spacing: 1px;}
+        
+        .ui-scan-line {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            animation: scan 2s infinite linear alternate;
+        }
+
+        @keyframes scan { 0% { top: 10%; } 100% { top: 90%; } }
+
+        .ui-card {
+            background: var(--bg-main);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .ui-item-title { font-size: 0.9rem; font-weight: 800; color: var(--text-dark); }
+        .ui-item-sub { font-size: 0.75rem; color: var(--text-muted); }
+        .ui-btn { margin-top: auto; background: var(--primary); color: var(--bg-surface); text-align: center; padding: 15px; border-radius: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* --- VERIFICATION REGISTRY (EXACT D&B MATCH) --- */
+        .registry-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+        }
+
+        .data-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-top: 6px solid var(--primary);
+        }
+
+        .data-row {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--bg-main);
+        }
+        .data-row:last-child { border: none; margin: 0; padding: 0; }
+
+        .data-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 800;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .data-value {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            background: var(--bg-surface);
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text-dark);
+            color: var(--bg-surface);
+            padding: 80px 5% 40px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover { color: var(--bg-surface); }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #6B7280;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            header, .app-promo, .registry-grid { grid-template-columns: 1fr; }
+            header { padding-top: 130px; }
+            .nav-links { display: none; }
+            .hero-graphic { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            SPELLBINDING TOYS
+        </div>
+        <div class="nav-links">
+            <a href="#retail">Retail Divisions</a>
+            <a href="#app">Omnichannel App</a>
+            <a href="#registry">Corporate Identity</a>
+            <a href="#contact" class="btn-nav">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div>
+            <div class="hero-tag">Retail Trade & Interactive Goods</div>
+            <h1>Where Play <br>Meets <span class="text-gradient">Innovation</span>.</h1>
+            <p>SPELLBINDING TOYS AND GAMES LTD is a premier UK retailer bridging the gap between physical sporting goods, hobby products, and digital retail experiences.</p>
+            <a href="#app" class="btn-primary">Discover the App</a>
+        </div>
+        <div class="hero-graphic">
+            <div class="play-block block-2"></div>
+            <div class="play-block block-1"></div>
+            <div class="play-block block-3"></div>
+        </div>
+    </header>
+
+    <!-- RETAIL DIVISIONS -->
+    <section id="retail" class="section">
+        <div class="section-header">
+            <h2>Our Retail Sectors</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎲</div>
+                <h3>Toys and Games</h3>
+                <p>Curating a vast selection of interactive toys, board games, and educational playtime products for all age demographics within the broader Retail Trade sector.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚽</div>
+                <h3>Sporting Goods</h3>
+                <p>Operating as established Sporting Goods Retailers, providing high-quality athletic equipment, outdoor gear, and physical recreation supplies.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Hobby & Miscellaneous</h3>
+                <p>Serving specialized consumer interests through our Hobby, Musical Instrument, Book, and Miscellaneous Retailers divisions, ensuring a comprehensive inventory.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2C APP PROMO (CRITICAL FOR GOOGLE PLAY CONSOLE) -->
+    <section id="app" class="section" style="padding-top: 0;">
+        <div class="app-promo">
+            <div class="app-text">
+                <div class="hero-tag" style="background: rgba(255,255,255,0.1); color: var(--bg-surface); border-color: rgba(255,255,255,0.2);">Google Play Publisher</div>
+                <h2>Spellbinding AR & Retail App</h2>
+                <p style="color: var(--bg-surface); font-size: 1.15rem; font-weight: 700;">
+                    To deliver an immersive omnichannel shopping experience, <strong>SPELLBINDING TOYS AND GAMES LTD develops and maintains an official mobile application.</strong>
+                </p>
+                <p>
+                    The <em>Spellbinding App</em> bridges our physical stores with digital interactivity. Customers can browse our entire inventory of toys and games, use the built-in AR scanner to see 3D toy models in-store, and manage their retail loyalty rewards directly from their Android devices.
+                </p>
+                
+                <ul class="app-list">
+                    <li>AR Scanner: Point your camera at toy boxes to see them come alive.</li>
+                    <li>E-Commerce: Order sporting goods and hobbies for home delivery.</li>
+                    <li>Digital Loyalty Card: Earn "Spells" (points) on every retail purchase.</li>
+                    <li>In-Store Stock Checker: Instantly verify if a game is on the shelf.</li>
+                </ul>
+            </div>
+            
+            <!-- CSS Phone Mockup -->
+            <div class="mockup-phone">
+                <div class="phone-notch"></div>
+                <div class="ui-screen" style="flex: 1; display: flex; flex-direction: column; padding-top: 30px;">
+                    <div class="ui-header">
+                        <h4>SPELLBINDING APP</h4>
+                        <div class="ui-points">450 Pts</div>
+                    </div>
+                    
+                    <div class="ui-camera-box">
+                        <div class="ui-scan-line"></div>
+                    </div>
+
+                    <div style="font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; margin-bottom: 10px; color: var(--text-dark);">Scanned Item Result:</div>
+
+                    <div class="ui-card">
+                        <div>
+                            <div class="ui-item-title">Dragon Quest Board Game</div>
+                            <div class="ui-item-sub">Aisle 4 • In Stock</div>
+                        </div>
+                        <div style="font-weight: 800; color: var(--primary);">£45.00</div>
+                    </div>
+
+                    <div class="ui-btn">Add to Digital Cart</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE REGISTRY (EXACT D&B MATCH) -->
+    <section id="registry" class="section">
+        <div class="section-header">
+            <h2>Corporate Database</h2>
+        </div>
+        <div class="registry-grid">
+            
+            <!-- Exact D&B Data -->
+            <div class="data-panel">
+                <div class="data-row">
+                    <span class="data-label">Legal Entity Name</span>
+                    <span class="data-value">SPELLBINDING TOYS AND GAMES LTD</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Key Principal</span>
+                    <span class="data-value">Kevin Graham Mitchell</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Industry Classification</span>
+                    <span class="data-value" style="font-size: 0.95rem;">
+                        • Sporting Goods, Hobby, and Musical Instrument Retailers<br>
+                        • Sporting Goods, Hobby, Musical Instrument, Book, and Miscellaneous Retailers<br>
+                        • Retail Trade<br>
+                        • Toys and games
+                    </span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Registered Headquarters</span>
+                    <span class="data-value" style="font-size: 0.95rem;">
+                        25 Acacia Avenue SHEPPERTON, TW17 0AZ<br>
+                        United Kingdom
+                    </span>
+                </div>
+                <div class="data-row" style="border: none;">
+                    <span class="data-label">Official Support Channel</span>
+                    <span class="data-value" style="color: var(--primary);">info@spellbindingtoysandgames.cloud</span>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div id="contact">
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--text-dark); margin-bottom: 20px;">Customer Service</h3>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Contact our retail team for inventory inquiries, wholesale hobby supply requests, or technical support regarding the mobile application.</p>
+                
+                <form onsubmit="event.preventDefault();">
+                    <input type="text" placeholder="Full Name / Retail Partner ID" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea placeholder="Describe your product inquiry or app issue..." rows="4" required></textarea>
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Submit Request</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER (CRUCIAL LEGAL LINKS) -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px; color: var(--bg-surface);">
+                    <div class="logo-icon"></div>
+                    SPELLBINDING
+                </div>
+                <p style="color: #9CA3AF; font-size: 0.9rem;">Providing exceptional retail experiences across toys, games, and sporting goods in the United Kingdom.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>App Developer Policies</h4>
+                <ul>
+                    <li><a href="#">Google Play Publisher Status</a></li>
+                    <li><a href="#">Report App AR Camera Bug</a></li>
+                    <li><a href="#" style="color: #fff; font-weight: bold;">Request Account & Data Deletion</a></li>
+                    <li><a href="#">Camera & Location Permissions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Retail & Compliance</h4>
+                <ul>
+                    <li><a href="#">Retail Returns Policy</a></li>
+                    <li><a href="#">Privacy Policy (GDPR)</a></li>
+                    <li><a href="#">Hobby Supplier Terms</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 SPELLBINDING TOYS AND GAMES LTD. Registered in the UK. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
